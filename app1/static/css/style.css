@@ -1,0 +1,121 @@
+body {
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f7f9fc;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: linear-gradient(to right, #e0f7ff, #f4faff);
+  text-align: center;
+  padding: 0 20px;
+  padding-top: 80px;
+}
+
+.hero h1 {
+  font-size: 3.8rem;
+  font-weight: 700;
+  color: #1e88e5;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  color: #4a4a4a;
+  max-width: 700px;
+  margin: 0 auto 30px;
+}
+
+.hero-buttons .btn {
+  padding: 12px 28px;
+  font-size: 1rem;
+  border-radius: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.hero-buttons .btn-primary {
+  background-color: #1e88e5;
+  border: none;
+}
+.nav-link {
+  font-weight: 500;
+  color: #333 !important;
+  padding: 8px 16px;
+  transition: all 0.3s ease;
+}
+.nav-link:hover {
+  color: #1e88e5 !important;
+  text-decoration: underline;
+}
+.btn-outline-primary {
+  border: 2px solid #1e88e5;
+  color: #1e88e5;
+  font-weight: 500;
+}
+.btn-outline-primary:hover {
+  background-color: #1e88e5;
+  color: white;
+}
+.btn-primary {
+  background-color: #1e88e5;
+  border: none;
+  font-weight: 500;
+}
+.btn-primary:hover {
+  background-color: #1565c0;
+}
+.hover-img {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.hover-img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+/* Text content hover effect */
+.hover-text {
+  transition: all 0.3s ease;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.hover-text:hover {
+  background-color: #f1f9ff;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.07);
+  transform: translateY(-3px);
+}
+
+/* Existing card hover improvement */
+.features .card {
+  border: none;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.features .card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid #1e88e5;
+}
+.feature-icon {
+  font-size: 2rem;
+  color: #1e88e5;
+  margin-bottom: 10px;
+}
+.features .card {
+  border: none;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+  border-radius: 16px;
+  transition: transform 0.3s ease;
+}
+.features .card:hover {
+  transform: translateY(-5px);
+}
+.footer {
+  background: #1e88e5;
+  color: white;
+  padding: 10px 0;
+}

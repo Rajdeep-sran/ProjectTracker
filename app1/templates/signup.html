@@ -1,0 +1,198 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Create Account - ProjectTracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <style>
+      body {
+        background: linear-gradient(135deg, #e3f2fd, #ffffff);
+        font-family: "Segoe UI", sans-serif;
+        min-height: 100vh;
+      }
+
+      .signup-card {
+        max-width: 500px;
+        margin: 90px auto;
+        background: #ffffff;
+        padding: 40px 35px;
+        border-radius: 20px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      }
+
+      .social-btn {
+        border-radius: 30px;
+        font-weight: 500;
+        padding: 10px;
+        width: 100%;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+        border: 1.5px solid #ddd;
+        transition: all 0.3s ease;
+      }
+
+      .social-btn:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .btn-google {
+        background-color: #fff;
+        color: #444;
+        border: 1.5px solid #ccc !important;
+        border-radius: 8px;
+        padding: 10px;
+        width: 100%;
+        font-weight: 500;
+        box-shadow: none;
+        transition: all 0.3s ease;
+        text-align: center;
+      }
+
+      .form-control {
+        border-radius: 10px;
+        padding: 10px;
+      }
+
+      .btn-continue {
+        background-color: #1e88e5; /* Medium professional blue */
+        color: white;
+        margin-top: 16px;
+        font-weight: 600;
+        padding: 12px;
+        border-radius: 30px;
+        width: 100%;
+        font-size: 1rem;
+        border: none;
+        box-shadow: 0 4px 12px rgba(30, 136, 229, 0.25);
+        transition: all 0.3s ease;
+      }
+
+      .btn-continue:hover {
+        background-color: #1565c0; /* Darker blue on hover */
+        box-shadow: 0 6px 16px rgba(21, 101, 192, 0.35);
+      }
+
+      .or-divider {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        color: #aaa;
+        margin: 25px 0;
+      }
+
+      .or-divider::before,
+      .or-divider::after {
+        content: "";
+        flex: 1;
+        border-bottom: 1px solid #ddd;
+      }
+
+      .or-divider:not(:empty)::before {
+        margin-right: 10px;
+      }
+
+      .or-divider:not(:empty)::after {
+        margin-left: 10px;
+      }
+
+      .social-icon {
+        height: 18px;
+        margin-right: 8px;
+        margin-bottom: 3px;
+      }
+
+      @media (max-width: 576px) {
+        .forgot-password {
+          float: none;
+          display: block;
+          text-align: right;
+          margin-top: 5px;
+        }
+      }
+    </style>
+  </head>
+
+  <script>
+    function togglePassword(inputId, iconId) {
+      const input = document.getElementById(inputId);
+      const icon = document.getElementById(iconId);
+
+      if (input.type === "password") {
+        input.type = "text";
+        icon.classList.remove("fa-eye-slash");
+        icon.classList.add("fa-eye");
+      } else {
+        input.type = "password";
+        icon.classList.remove("fa-eye");
+        icon.classList.add("fa-eye-slash");
+      }
+    }
+  </script>
+
+  <body>
+    <!-- Include Navbar -->
+    {% include 'navbar.html' %}
+
+    <!-- Signup Card -->
+    <div class="signup-card">
+      <p class="text-center text-muted mb-1">Welcome to ProjectTracker!</p>
+      <h2 class="text-center fw-bold text-dark mb-4">Create Account</h2>
+
+      <!-- Email Form -->
+      <form method="post">
+        {% csrf_token %}
+
+        <!-- Render form fields manually -->
+        <div class="mb-3">{{ form.email }}</div>
+
+        <div class="mb-2 position-relative">
+          {{ form.password1 }}
+          <span
+            class="position-absolute end-0 me-3"
+            style="top: 50%; transform: translateY(-55%); cursor: pointer"
+            onclick="togglePassword('id_password1', 'toggleIcon1')"
+          >
+            <i id="toggleIcon1" class="fa-solid fa-eye-slash text-muted"></i>
+          </span>
+        </div>
+
+        <div class="mb-2 position-relative">
+          {{ form.password2 }}
+          <span
+            class="position-absolute end-0 me-3"
+            style="top: 50%; transform: translateY(-55%); cursor: pointer"
+            onclick="togglePassword('id_password2', 'toggleIcon2')"
+          >
+            <i id="toggleIcon2" class="fa-solid fa-eye-slash text-muted"></i>
+          </span>
+        </div>
+
+        <div class="mt-4">
+          <button type="submit" class="btn-continue">Continue</button>
+        </div>
+      </form>
+
+      <!-- Sign In Link -->
+      <div class="text-center mt-4">
+        <span class="text-muted">Already have an account?</span>
+        <a
+          href="{% url 'signin' %}"
+          class="text-decoration-none fw-semibold ms-1"
+          >Sign In</a
+        >
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
